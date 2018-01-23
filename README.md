@@ -1,22 +1,21 @@
-## Go EtherSocial
+## Go ddengle
 
-Official golang implementation of the EtherSocial protocol.
+이 문서는 이더소셜 및 이더리움의 소스 분석을 위한 문서입니다.
 
 ## Building the source
 
-For prerequisites and detailed build instructions please read the
-[Installation Instructions](https://github.com/ethersocial/go-ddengle/wiki/Building-EtherSocial)
-on the wiki.
+gesc는 go-ethersocial의 줄임말입니다.
 
-Building gesc requires both a Go (version 1.7 or later) and a C compiler.
-You can install them using your favourite package manager.
-Once the dependencies are installed, run
+gesc를 빌딩하기 위해서는 Golang 1.7 버전 이상이 과 C 컴파일러가 필요합니다.
 
-    make gesc
+그 이후 아래 명령어를 입력하면 gesc가 빌딩이 됩니다.
 
-or, to build the full suite of utilities:
+    $ make gesc
 
-    make all
+gesc 이외에 관련 모든 유틸을 모두 컴파일하시려면 다음을 입력합니다.
+
+
+    $ make all
 
 ## Executables
 
