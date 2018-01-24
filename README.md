@@ -2,6 +2,92 @@
 
 이 문서는 이더소셜 및 이더리움의 소스 분석을 위한 문서입니다.
 
+## 제네시스 블록 만들기
+
+go-esc 소스를 다운로드 받습니다.
+
+    $ git clone https://github.com/ethersocial/go-esc
+    $ cd go-esc
+    $ chmod 755 build/*
+    $ make gesc
+
+genesis.json 파일을작성합니다.
+
+    $ vi ~/genesis.json
+
+```(.javascript)
+{
+  "config": {
+        "chainId": 0,
+        "homesteadBlock": 0,
+        "eip155Block": 9000000,
+        "eip158Block": 9000000
+    },
+   "alloc": {
+	"0x54b125d8b260386633b756056b7d7e78e7071715": {"balance": "10000"}
+	]
+   },
+  "coinbase"   : "0x0000000000000000000000000000000000000000",
+  "difficulty" : "0x20000",
+  "extraData"  : "",
+  "gasLimit"   : "0x2fefd8",
+  "nonce"      : "0x0000000000000001",
+  "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
+  "timestamp"  : "0x00"
+}
+```
+
+제네시스 블록을 불러들여서 gesc를 시작합니다.
+
+    $ ./build/bin/gesc init ~/genesis.json
+
+아래처럼 나오면 성공입니다.
+
+    Writing custom genesis block 
+    Successfully wrote genesis state
+
+go-esc를 실행시켜서 제네시스 블록에 대한 정보를 불러옵니다.
+
+    $ ./build/bin/gesc console    
+    > eth.getBlock(0x0)
+
+```(.javascript)
+   
+{
+  difficulty: 131072,
+  extraData: "0x",
+  gasLimit: 3141592,
+  gasUsed: 0,
+  hash: "0x47ce6068a4542d4245731aedcde30d9331d35f5e5790922a78ccf76bbc4eecd3",
+  logsBloom: "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  miner: "0x0000000000000000000000000000000000000000",
+  mixHash: "0x0000000000000000000000000000000000000000000000000000000000000000",
+  nonce: "0x0000000000000042",
+  number: 0,
+  parentHash: "0x0000000000000000000000000000000000000000000000000000000000000000",
+  receiptsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+  sha3Uncles: "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+  size: 507,
+  stateRoot: "0xd2ca6ec5aad5367296cb625eac8f2efcab04959f940fc24e44291c6cf9d55733",
+  timestamp: 0,
+  totalDifficulty: 131072,
+  transactions: [],
+  transactionsRoot: "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+  uncles: []
+}
+```
+
+이 정보를 잘 저장한 후 `exit` 를 눌러서 빠져나옵니다.
+
+이제 제네시스 블록을 소스에 하드코딩합니다. 이를 위해서 genesis.json을 변환해야합니다.
+
+    $ go run mkalloc.go ~/genesis.json
+
+    $ go run mkalloc.go ~/genesis.json
+
+
+
 ## Building the source
 
 gesc는 go-ethersocial의 줄임말입니다.
