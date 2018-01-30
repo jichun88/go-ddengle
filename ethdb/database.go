@@ -56,10 +56,12 @@ type LDBDatabase struct {
 }
 
 // NewLDBDatabase returns a LevelDB wrapped object.
+// NewLDBDatabase는 객체를 LevelDB로 묶은 반환값을 가집니다.
 func NewLDBDatabase(file string, cache int, handles int) (*LDBDatabase, error) {
 	logger := log.New("database", file)
 
 	// Ensure we have some minimal caching and file guarantees
+	// 최소한의 캐쉬값과 파일 검증 값을 유지하도록 만들어줍니다.
 	if cache < 16 {
 		cache = 16
 	}
