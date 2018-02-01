@@ -191,11 +191,9 @@ subvert locally available APIs!**
   "timestamp"  : "0x00"
 }
 ```
-
-The above fields should be fine for most purposes, although we'd recommend changing the `nonce` to
-some random value so you prevent unknown remote nodes from being able to connect to you. If you'd
-like to pre-fund some accounts for easier testing, you can populate the `alloc` field with account
-configs:
+위의 대부분의 필드들은 그냥 그대로 두어도 괜찮지만, `nonce` 필드는 임의의 값으로 변경하여 당신의 네트워크에
+알 수 없는 노드가 연결할 수 없게하는 것이 좋습니다.
+테스트를 위해 일부 계정에 코인을 넣을려면 `alloc` 필드에 아래와 같이 정의합니다.
 
 ```json
 "alloc": {
