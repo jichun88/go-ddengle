@@ -163,13 +163,13 @@ doing so! Hackers on the internet are actively trying to subvert EtherSocial nod
 Further, all browser tabs can access locally running webservers, so malicious webpages could try to
 subvert locally available APIs!**
 
-### Operating a private network
+###  사설네트워크 생성 방법
 
-Maintaining your own private network is more involved as a lot of configurations taken for granted in
-the official networks need to be manually set up.
+사설 네트워크를 생성하기 위해서는 공식네트워크보다 많은 설정을 필요로 합니다
 
-#### Defining the private genesis state
+#### 사설 생성 상태 정의하기
 
+첫번째로는 당신의 네트워크에 생성 상태를 정의하고, 모든 노드가 공유된 것 알고있어야합니다. 아래는 정의된 JSON 파일의 일부입니다.
 First, you'll need to create the genesis state of your networks, which all nodes need to be aware of
 and agree upon. This consists of a small JSON file (e.g. call it `genesis.json`):
 
