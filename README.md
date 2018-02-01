@@ -170,7 +170,7 @@ subvert locally available APIs!**
 #### 사설 생성 상태 정의하기
 
 첫번째로는 당신의 네트워크에 생성 상태를 정의하고, 모든 노드가 상태를 공유해야합니다. 
-아래는 정의된 JSON 파일의 일부입니다.(e.g. call it `genesis.json`):
+아래는 정의된 JSON 파일입니다.(e.g. call it `genesis.json`):
 
 ```json
 {
